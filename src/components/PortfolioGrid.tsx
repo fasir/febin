@@ -202,7 +202,16 @@ export default function PortfolioGrid() {
           }}>
             {filteredWorks.map((work) => (
               <div key={work.id} style={{ animation: 'scaleIn 0.3s ease-out' }}>
-                <WorkCard work={work} onClick={setSelectedWork} />
+                <WorkCard 
+                  work={work} 
+                  onClick={(w) => {
+                    if (w.type === 'pdf') {
+                      window.open(w.path, '_blank');
+                    } else {
+                      setSelectedWork(w);
+                    }
+                  }} 
+                />
               </div>
             ))}
           </div>

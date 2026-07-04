@@ -237,3 +237,73 @@ header {
     display: none; /* simple toggle for mobile layout */
   }
 }
+
+/* Media Modal Responsive & Mobile-friendly Enhancements */
+@media (max-width: 900px) {
+  .modal-overlay {
+    padding: 0.5rem !important;
+  }
+
+  .modal-card {
+    max-height: 95vh !important;
+  }
+
+  .modal-content-wrapper {
+    flex-direction: column !important;
+    max-height: 95vh !important;
+    overflow-y: auto !important;
+  }
+
+  /* Media viewer panel gets secondary height on mobile */
+  .modal-media-viewer {
+    flex: none !important;
+    width: 100% !important;
+    min-height: 250px !important;
+    height: 300px !important;
+    max-height: 350px !important;
+  }
+
+  /* Details panel gets full width and normal height on mobile */
+  .modal-details-wrapper {
+    flex: none !important;
+    width: 100% !important;
+    border-left: none !important;
+    border-top: 1px solid var(--glass-border) !important;
+    padding: 1.5rem !important;
+    background-color: rgba(20, 20, 25, 0.6) !important;
+    overflow-y: visible !important;
+  }
+
+  /* Arrow navigation repositioning for mobile usability */
+  .modal-overlay > button[style*="left: 1.5rem"], 
+  .modal-overlay > button[style*="right: 1.5rem"] {
+    width: 40px !important;
+    height: 40px !important;
+    background-color: rgba(9, 9, 11, 0.8) !important;
+  }
+}
+
+/* Portfolio Grid / Showcase List Enhancements */
+@media (max-width: 600px) {
+  /* Smaller padding on mobile */
+  #showcase {
+    padding: 4rem 0 !important;
+  }
+
+  /* Make search bar and count indicator wrap cleanly */
+  #showcase .container > div:nth-child(2) > div:first-child {
+    flex-direction: column !important;
+    align-items: stretch !important;
+    gap: 1rem !important;
+  }
+
+  #showcase .container > div:nth-child(2) > div:first-child > div:last-child {
+    justify-content: center !important;
+  }
+
+  /* Filter buttons container padding */
+  #showcase button {
+    padding: 0.4rem 0.85rem !important;
+    font-size: 0.8rem !important;
+  }
+}

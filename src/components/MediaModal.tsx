@@ -169,7 +169,7 @@ export default function MediaModal({ work, onClose, onPrev, onNext }: MediaModal
 
       {/* Modal Card */}
       <div 
-        className="glass-card" 
+        className="glass-card modal-card" 
         style={{
           width: '100%',
           maxWidth: '1000px',
@@ -187,47 +187,90 @@ export default function MediaModal({ work, onClose, onPrev, onNext }: MediaModal
           flexDirection: 'row',
           height: '100%',
           width: '100%',
-          maxHeight: 'inherit',
-          '@media (maxWidth: 900px)': {
-            flexDirection: 'column'
-          }
-        } as any} className="modal-content-wrapper">
+          maxHeight: 'inherit'
+        }} className="modal-content-wrapper">
           
           {/* Left panel: Media viewer */}
-          <div style={{
-            flex: '1.6',
-            backgroundColor: '#0c0c0e',
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-            position: 'relative',
-            minHeight: '300px',
-            maxHeight: 'calc(90vh - 2px)',
-            overflow: 'hidden'
-          }}>
+          <div 
+            className="modal-media-viewer"
+            style={{
+              flex: '1.6',
+              backgroundColor: '#0c0c0e',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              position: 'relative',
+              minHeight: '300px',
+              maxHeight: 'calc(90vh - 2px)',
+              overflow: 'hidden'
+            }}
+          >
             {isImage ? (
               // eslint-disable-next-line @next/next/no-img-element
               <img 
                 src={work.path} 
                 alt={work.title}
                 style={{
-                  maxWidth: '100%',
-                  maxHeight: '80vh',
+                  width: '100%',
+                  height: '100%',
                   objectFit: 'contain',
                   padding: '1.5rem'
                 }}
               />
             ) : isPdf ? (
-              <iframe 
-                src={`${work.path}#toolbar=0&view=FitH`} 
-                title={work.title}
-                style={{
-                  width: '100%',
-                  height: '75vh',
-                  minHeight: '500px',
-                  border: 'none'
-                }}
-              />
+              <div style={{
+                display: 'flex',
+                flexDirection: 'column',
+                alignItems: 'center',
+                justifyContent: 'center',
+                gap: '1.5rem',
+                color: 'var(--warning-color)',
+                padding: '3.5rem 2rem',
+                textAlign: 'center',
+                width: '100%',
+                background: 'linear-gradient(135deg, rgba(30, 30, 40, 0.6) 0%, rgba(15, 15, 20, 0.9) 100%)',
+              }}>
+                <div style={{
+                  width: '96px',
+                  height: '96px',
+                  borderRadius: 'var(--radius-full)',
+                  background: 'rgba(245, 158, 11, 0.08)',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  border: '1px solid rgba(245, 158, 11, 0.2)'
+                }}>
+                  <FileText size={48} color="#f59e0b" />
+                </div>
+                <div>
+                  <h3 style={{ fontSize: '1.25rem', fontWeight: 700, color: 'var(--fg-primary)', marginBottom: '0.5rem' }}>
+                    PDF Document
+                  </h3>
+                  <p style={{ fontSize: '0.9rem', color: 'var(--fg-secondary)', maxWidth: '400px', lineHeight: 1.5, marginBottom: '1.5rem' }}>
+                    This is a high-resolution PDF document showcase asset. Click below to view it in an external window.
+                  </p>
+                  <a 
+                    href={work.path} 
+                    target="_blank" 
+                    rel="noreferrer"
+                    className="btn btn-primary"
+                    style={{ 
+                      display: 'inline-flex',
+                      alignItems: 'center',
+                      gap: '0.5rem',
+                      backgroundColor: '#f59e0b',
+                      borderColor: 'transparent',
+                      color: '#000',
+                      fontWeight: 700,
+                      boxShadow: '0 4px 14px rgba(245, 158, 11, 0.3)'
+                    }}
+                    onMouseEnter={(e) => e.currentTarget.style.backgroundColor = '#d97706'}
+                    onMouseLeave={(e) => e.currentTarget.style.backgroundColor = '#f59e0b'}
+                  >
+                    View PDF in New Tab <ExternalLink size={16} />
+                  </a>
+                </div>
+              </div>
             ) : isArchive ? (
               <div style={{
                 display: 'flex',
