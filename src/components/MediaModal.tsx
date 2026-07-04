@@ -386,8 +386,8 @@ export default function MediaModal({ work, onClose, onPrev, onNext }: MediaModal
                         fontSize: '0.75rem',
                         fontWeight: 600,
                         color: 'var(--fg-primary)',
-                        backgroundColor: 'rgba(139, 92, 246, 0.1)',
-                        border: '1px solid rgba(139, 92, 246, 0.2)',
+                        backgroundColor: 'rgba(230, 0, 35, 0.1)',
+                        border: '1px solid rgba(230, 0, 35, 0.2)',
                         padding: '0.2rem 0.6rem',
                         borderRadius: 'var(--radius-sm)',
                       }}

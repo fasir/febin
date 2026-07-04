@@ -17,7 +17,7 @@ export default function Hero() {
       padding: '9rem 0 6rem 0',
       overflow: 'hidden',
       borderBottom: '1px solid var(--glass-border)',
-      background: 'radial-gradient(circle at 80% 20%, rgba(139, 92, 246, 0.15) 0%, transparent 60%)'
+      background: 'radial-gradient(circle at 80% 20%, rgba(230, 0, 35, 0.15) 0%, transparent 60%)'
     }}>
       {/* Decorative backdrop light */}
       <div style={{
@@ -27,7 +27,7 @@ export default function Hero() {
         top: '-200px',
         left: '-150px',
         borderRadius: 'var(--radius-full)',
-        background: 'rgba(139, 92, 246, 0.12)',
+        background: 'rgba(230, 0, 35, 0.12)',
         filter: 'blur(120px)',
         zIndex: 0,
         pointerEvents: 'none'
@@ -56,13 +56,13 @@ export default function Hero() {
             gap: '0.6rem',
             padding: '0.5rem 1.25rem',
             borderRadius: 'var(--radius-full)',
-            background: 'rgba(139, 92, 246, 0.08)',
-            border: '1px solid rgba(139, 92, 246, 0.2)',
+            background: 'rgba(230, 0, 35, 0.08)',
+            border: '1px solid rgba(230, 0, 35, 0.2)',
             fontSize: '0.9rem',
             fontWeight: 600,
             color: 'var(--accent-color-hover)',
             marginBottom: '2rem',
-            boxShadow: '0 4px 20px rgba(139, 92, 246, 0.05)',
+            boxShadow: '0 4px 20px rgba(230, 0, 35, 0.05)',
             animation: 'fadeIn 0.6s ease-out'
           }}>
             <Sparkles size={14} color="var(--accent-color-hover)" />
@@ -134,7 +134,7 @@ export default function Hero() {
             }}
             onMouseEnter={(e) => {
               e.currentTarget.style.transform = 'translateY(-4px)';
-              e.currentTarget.style.borderColor = 'rgba(139, 92, 246, 0.3)';
+              e.currentTarget.style.borderColor = 'rgba(230, 0, 35, 0.3)';
             }}
             onMouseLeave={(e) => {
               e.currentTarget.style.transform = 'translateY(0)';
@@ -151,7 +151,7 @@ export default function Hero() {
             }}
             onMouseEnter={(e) => {
               e.currentTarget.style.transform = 'translateY(-4px)';
-              e.currentTarget.style.borderColor = 'rgba(139, 92, 246, 0.3)';
+              e.currentTarget.style.borderColor = 'rgba(230, 0, 35, 0.3)';
             }}
             onMouseLeave={(e) => {
               e.currentTarget.style.transform = 'translateY(0)';

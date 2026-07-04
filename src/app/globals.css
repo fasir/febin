@@ -8,9 +8,9 @@
   --fg-secondary: #a1a1aa;
   --fg-tertiary: #71717a;
   
-  --accent-color: #8b5cf6;       /* Violet-500 */
-  --accent-color-hover: #a78bfa; /* Violet-400 */
-  --accent-rgb: 139, 92, 246;
+  --accent-color: #e60023;       /* Pinterest Red */
+  --accent-color-hover: #ff2a43; /* Pinterest Red Hover */
+  --accent-rgb: 230, 0, 35;
   
   --success-color: #10b981;
   --info-color: #3b82f6;
@@ -305,5 +305,41 @@ header {
   #showcase button {
     padding: 0.4rem 0.85rem !important;
     font-size: 0.8rem !important;
+  }
+}
+
+/* Pinterest Masonry Grid Styles */
+.pinterest-grid {
+  column-count: 4;
+  column-gap: 1.5rem;
+  width: 100%;
+}
+
+.pinterest-card {
+  break-inside: avoid;
+  margin-bottom: 1.5rem;
+  display: inline-block;
+  width: 100%;
+}
+
+@media (max-width: 1200px) {
+  .pinterest-grid {
+    column-count: 3;
+  }
+}
+
+@media (max-width: 768px) {
+  .pinterest-grid {
+    column-count: 2;
+    column-gap: 1rem;
+  }
+  .pinterest-card {
+    margin-bottom: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .pinterest-grid {
+    column-count: 1;
   }
 }

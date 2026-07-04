@@ -46,7 +46,7 @@ export default function Contact() {
       padding: '8rem 0 6rem 0',
       position: 'relative',
       overflow: 'hidden',
-      background: 'radial-gradient(circle at 50% 90%, rgba(139, 92, 246, 0.1) 0%, transparent 60%)'
+      background: 'radial-gradient(circle at 50% 90%, rgba(230, 0, 35, 0.1) 0%, transparent 60%)'
     }}>
       {/* Decorative background glow */}
       <div style={{
@@ -56,7 +56,7 @@ export default function Contact() {
         bottom: '-100px',
         left: 'calc(50% - 150px)',
         borderRadius: 'var(--radius-full)',
-        background: 'rgba(139, 92, 246, 0.15)',
+        background: 'rgba(230, 0, 35, 0.15)',
         filter: 'blur(80px)',
         zIndex: 0,
         pointerEvents: 'none'
@@ -72,8 +72,8 @@ export default function Contact() {
             gap: '0.5rem',
             padding: '0.4rem 1rem',
             borderRadius: 'var(--radius-full)',
-            background: 'rgba(139, 92, 246, 0.08)',
-            border: '1px solid rgba(139, 92, 246, 0.2)',
+            background: 'rgba(230, 0, 35, 0.08)',
+            border: '1px solid rgba(230, 0, 35, 0.2)',
             fontSize: '0.8rem',
             fontWeight: 700,
             color: 'var(--accent-color-hover)',
@@ -119,7 +119,7 @@ export default function Contact() {
           }}
           onMouseEnter={(e) => {
             e.currentTarget.style.transform = 'translateY(-5px)';
-            e.currentTarget.style.borderColor = 'rgba(139, 92, 246, 0.4)';
+            e.currentTarget.style.borderColor = 'rgba(230, 0, 35, 0.4)';
           }}
           onMouseLeave={(e) => {
             e.currentTarget.style.transform = 'translateY(0)';
@@ -129,8 +129,8 @@ export default function Contact() {
               width: '56px',
               height: '56px',
               borderRadius: 'var(--radius-md)',
-              backgroundColor: 'rgba(139, 92, 246, 0.08)',
-              border: '1px solid rgba(139, 92, 246, 0.2)',
+              backgroundColor: 'rgba(230, 0, 35, 0.08)',
+              border: '1px solid rgba(230, 0, 35, 0.2)',
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'center',
@@ -217,7 +217,7 @@ export default function Contact() {
           }}
           onMouseEnter={(e) => {
             e.currentTarget.style.transform = 'translateY(-5px)';
-            e.currentTarget.style.borderColor = 'rgba(139, 92, 246, 0.4)';
+            e.currentTarget.style.borderColor = 'rgba(230, 0, 35, 0.4)';
           }}
           onMouseLeave={(e) => {
             e.currentTarget.style.transform = 'translateY(0)';
@@ -227,8 +227,8 @@ export default function Contact() {
               width: '56px',
               height: '56px',
               borderRadius: 'var(--radius-md)',
-              backgroundColor: 'rgba(139, 92, 246, 0.08)',
-              border: '1px solid rgba(139, 92, 246, 0.2)',
+              backgroundColor: 'rgba(230, 0, 35, 0.08)',
+              border: '1px solid rgba(230, 0, 35, 0.2)',
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'center',

@@ -17,7 +17,7 @@ export default function About() {
       padding: '6rem 0',
       borderTop: '1px solid var(--glass-border)',
       borderBottom: '1px solid var(--glass-border)',
-      background: 'radial-gradient(circle at 10% 80%, rgba(139, 92, 246, 0.08) 0%, transparent 50%)'
+      background: 'radial-gradient(circle at 10% 80%, rgba(230, 0, 35, 0.08) 0%, transparent 50%)'
     }}>
       <div className="container">
         <div style={{
@@ -34,7 +34,7 @@ export default function About() {
               gap: '0.5rem',
               padding: '0.4rem 1rem',
               borderRadius: 'var(--radius-full)',
-              background: 'rgba(139, 92, 246, 0.08)',
+              background: 'rgba(230, 0, 35, 0.08)',
               fontSize: '0.8rem',
               fontWeight: 700,
               color: 'var(--accent-color-hover)',

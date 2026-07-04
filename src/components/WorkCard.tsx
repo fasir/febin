@@ -27,12 +27,9 @@ export default function WorkCard({ work, onClick }: WorkCardProps) {
 
   return (
     <div 
-      className="glass-card" 
+      className="glass-card pinterest-card" 
       onClick={() => onClick(work)}
       style={{
-        display: 'flex',
-        flexDirection: 'column',
-        height: '100%',
         cursor: 'pointer',
         overflow: 'hidden',
         position: 'relative',
@@ -41,8 +38,8 @@ export default function WorkCard({ work, onClick }: WorkCardProps) {
       }}
       onMouseEnter={(e) => {
         e.currentTarget.style.transform = 'translateY(-6px)';
-        e.currentTarget.style.borderColor = 'rgba(139, 92, 246, 0.4)';
-        e.currentTarget.style.boxShadow = '0 12px 30px rgba(139, 92, 246, 0.15)';
+        e.currentTarget.style.borderColor = 'rgba(230, 0, 35, 0.4)';
+        e.currentTarget.style.boxShadow = '0 12px 30px rgba(230, 0, 35, 0.15)';
         const overlay = e.currentTarget.querySelector('.card-overlay') as HTMLElement;
         if (overlay) overlay.style.opacity = '1';
       }}
@@ -58,7 +55,6 @@ export default function WorkCard({ work, onClick }: WorkCardProps) {
       <div style={{
         position: 'relative',
         width: '100%',
-        height: '220px',
         backgroundColor: '#121214',
         borderBottom: '1px solid var(--glass-border)',
         display: 'flex',
@@ -73,8 +69,8 @@ export default function WorkCard({ work, onClick }: WorkCardProps) {
             alt={work.title}
             style={{
               width: '100%',
-              height: '100%',
-              objectFit: 'cover',
+              height: 'auto',
+              display: 'block',
               transition: 'transform var(--transition-slow)'
             }}
             loading="lazy"
@@ -100,7 +96,7 @@ export default function WorkCard({ work, onClick }: WorkCardProps) {
             gap: '1rem',
             color: isPdf ? 'var(--warning-color)' : isArchive ? 'var(--info-color)' : 'var(--fg-tertiary)',
             width: '100%',
-            height: '100%',
+            aspectRatio: isPdf ? '3/4' : '16/10',
             justifyContent: 'center',
             background: 'linear-gradient(135deg, rgba(30, 30, 40, 0.5) 0%, rgba(15, 15, 20, 0.8) 100%)',
             padding: '1.5rem',
@@ -148,7 +144,7 @@ export default function WorkCard({ work, onClick }: WorkCardProps) {
             color: 'white',
             fontWeight: 600,
             fontSize: '0.85rem',
-            boxShadow: '0 4px 10px rgba(139, 92, 246, 0.4)'
+            boxShadow: '0 4px 10px rgba(230, 0, 35, 0.4)'
           }}>
             {isArchive ? <Download size={16} /> : <Eye size={16} />}
             {isArchive ? 'Download ZIP' : isPdf ? 'Read PDF' : 'Quick Preview'}
@@ -161,7 +157,6 @@ export default function WorkCard({ work, onClick }: WorkCardProps) {
         padding: '1.25rem',
         display: 'flex',
         flexDirection: 'column',
-        flexGrow: 1,
         gap: '0.75rem'
       }}>
         <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
@@ -207,8 +202,7 @@ export default function WorkCard({ work, onClick }: WorkCardProps) {
           overflow: 'hidden',
           display: '-webkit-box',
           WebkitLineClamp: 2,
-          WebkitBoxOrient: 'vertical',
-          flexGrow: 1
+          WebkitBoxOrient: 'vertical'
         }}>
           {work.description}
         </p>

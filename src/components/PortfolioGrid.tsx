@@ -42,6 +42,35 @@ export default function PortfolioGrid() {
     });
   }, [activeCategory, searchQuery]);
 
+  // Group filtered works by category for category-wise view
+  const groupedWorks = useMemo(() => {
+    const groups: { [key: string]: WorkItem[] } = {};
+    
+    // Initialize groups for all categories (excluding 'All')
+    categories.forEach(cat => {
+      if (cat !== 'All') {
+        groups[cat] = [];
+      }
+    });
+
+    // Populate groups with matching filtered items
+    filteredWorks.forEach(work => {
+      if (groups[work.category]) {
+        groups[work.category].push(work);
+      } else {
+        groups[work.category] = [work];
+      }
+    });
+
+    // Filter out groups with no items (useful when searching)
+    return Object.keys(groups)
+      .filter(cat => groups[cat].length > 0)
+      .map(cat => ({
+        category: cat,
+        works: groups[cat]
+      }));
+  }, [filteredWorks, categories]);
+
   // Navigate prev/next in modal
   const handlePrev = () => {
     if (!selectedWork) return;
@@ -163,7 +192,7 @@ export default function PortfolioGrid() {
                       borderRadius: 'var(--radius-full)',
                       border: '1px solid',
                       borderColor: isActive ? 'var(--accent-color)' : 'var(--glass-border)',
-                      backgroundColor: isActive ? 'rgba(139, 92, 246, 0.1)' : 'rgba(255, 255, 255, 0.02)',
+                      backgroundColor: isActive ? 'rgba(230, 0, 35, 0.1)' : 'rgba(255, 255, 255, 0.02)',
                       color: isActive ? 'var(--accent-color-hover)' : 'var(--fg-secondary)',
                       fontSize: '0.85rem',
                       fontWeight: 600,
@@ -192,28 +221,67 @@ export default function PortfolioGrid() {
 
         </div>
 
-        {/* Portfolio Showcase Grid */}
+        {/* Portfolio Showcase List */}
         {filteredWorks.length > 0 ? (
-          <div style={{
-            display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fill, minmax(290px, 1fr))',
-            gap: '2rem',
-            animation: 'fadeIn 0.5s ease-out'
-          }}>
-            {filteredWorks.map((work) => (
-              <div key={work.id} style={{ animation: 'scaleIn 0.3s ease-out' }}>
-                <WorkCard 
-                  work={work} 
-                  onClick={(w) => {
-                    if (w.type === 'pdf') {
-                      window.open(w.path, '_blank');
-                    } else {
-                      setSelectedWork(w);
-                    }
-                  }} 
-                />
+          <div>
+            {activeCategory === 'All' ? (
+              /* Grouped category-wise list for 'All' tab */
+              groupedWorks.map(({ category, works }) => (
+                <div key={category} style={{ marginBottom: '4.5rem' }}>
+                  <h3 style={{
+                    fontSize: '1.4rem',
+                    fontWeight: 800,
+                    color: 'var(--fg-primary)',
+                    marginBottom: '1.5rem',
+                    display: 'flex',
+                    alignItems: 'center',
+                    gap: '0.5rem',
+                    borderLeft: '4px solid var(--accent-color)',
+                    paddingLeft: '0.75rem'
+                  }}>
+                    {category}
+                    <span style={{ fontSize: '0.85rem', color: 'var(--fg-tertiary)', fontWeight: 500 }}>
+                      ({works.length})
+                    </span>
+                  </h3>
+                  
+                  <div className="pinterest-grid">
+                    {works.map((work) => (
+                      <div key={work.id} className="pinterest-card" style={{ animation: 'scaleIn 0.3s ease-out' }}>
+                        <WorkCard 
+                          work={work} 
+                          onClick={(w) => {
+                            if (w.type === 'pdf') {
+                              window.open(w.path, '_blank');
+                            } else {
+                              setSelectedWork(w);
+                            }
+                          }} 
+                        />
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              ))
+            ) : (
+              /* Single category Pinterest grid view */
+              <div className="pinterest-grid">
+                {filteredWorks.map((work) => (
+                  <div key={work.id} className="pinterest-card" style={{ animation: 'scaleIn 0.3s ease-out' }}>
+                    <WorkCard 
+                      work={work} 
+                      onClick={(w) => {
+                        if (w.type === 'pdf') {
+                          window.open(w.path, '_blank');
+                        } else {
+                          setSelectedWork(w);
+                        }
+                      }} 
+                    />
+                  </div>
+                ))}
               </div>
-            ))}
+            )}
           </div>
         ) : (
           /* Empty Search/Filter State */
