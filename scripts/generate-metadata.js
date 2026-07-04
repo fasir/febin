@@ -146,7 +146,7 @@ const portfolioItems = files
       tags: [category.split(' ')[0], ext.substring(1).toUpperCase(), stats.size > 1024 * 1024 ? 'High-Res' : 'Vector']
     };
   })
-  .sort((a, b) => b.sizeBytes - a.sizeBytes); // Sort by size as a default
+  .sort((a, b) => a.title.localeCompare(b.title)); // Sort by title alphabetically
 
 fs.writeFileSync(outputFile, JSON.stringify(portfolioItems, null, 2), 'utf-8');
 console.log(`Successfully generated metadata for ${portfolioItems.length} files in ${outputFile}`);
