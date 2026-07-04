@@ -1,11 +1,11 @@
 'use client';
 
 import React from 'react';
-import { ArrowDown, FileText, LayoutGrid } from 'lucide-react';
+import { ArrowDown, LayoutGrid, MessageSquare, Sparkles } from 'lucide-react';
 
 export default function Hero() {
-  const scrollToShowcase = () => {
-    const element = document.getElementById('showcase');
+  const scrollToSection = (id: string) => {
+    const element = document.getElementById(id);
     if (element) {
       element.scrollIntoView({ behavior: 'smooth' });
     }
@@ -14,116 +14,168 @@ export default function Hero() {
   return (
     <section className="hero-section" style={{
       position: 'relative',
-      padding: '7rem 0 5rem 0',
+      padding: '9rem 0 6rem 0',
       overflow: 'hidden',
       borderBottom: '1px solid var(--glass-border)',
-      background: 'radial-gradient(circle at 80% 20%, rgba(139, 92, 246, 0.15) 0%, transparent 50%)'
+      background: 'radial-gradient(circle at 80% 20%, rgba(139, 92, 246, 0.15) 0%, transparent 60%)'
     }}>
       {/* Decorative backdrop light */}
       <div style={{
         position: 'absolute',
-        width: '400px',
-        height: '400px',
-        top: '-150px',
-        left: '-100px',
+        width: '500px',
+        height: '500px',
+        top: '-200px',
+        left: '-150px',
         borderRadius: 'var(--radius-full)',
-        background: 'rgba(139, 92, 246, 0.08)',
+        background: 'rgba(139, 92, 246, 0.12)',
+        filter: 'blur(120px)',
+        zIndex: 0,
+        pointerEvents: 'none'
+      }} />
+
+      <div style={{
+        position: 'absolute',
+        width: '300px',
+        height: '300px',
+        bottom: '-50px',
+        right: '10%',
+        borderRadius: 'var(--radius-full)',
+        background: 'rgba(16, 185, 129, 0.06)',
         filter: 'blur(100px)',
         zIndex: 0,
         pointerEvents: 'none'
       }} />
 
       <div className="container" style={{ position: 'relative', zIndex: 1 }}>
-        <div style={{ maxWidth: '800px', margin: '0 auto', textAlign: 'center' }}>
+        <div style={{ maxWidth: '850px', margin: '0 auto', textAlign: 'center' }}>
           
+          {/* Greeting Badge */}
           <div style={{
             display: 'inline-flex',
             alignItems: 'center',
-            gap: '0.5rem',
-            padding: '0.4rem 1rem',
+            gap: '0.6rem',
+            padding: '0.5rem 1.25rem',
             borderRadius: 'var(--radius-full)',
             background: 'rgba(139, 92, 246, 0.08)',
             border: '1px solid rgba(139, 92, 246, 0.2)',
-            fontSize: '0.85rem',
+            fontSize: '0.9rem',
             fontWeight: 600,
             color: 'var(--accent-color-hover)',
             marginBottom: '2rem',
+            boxShadow: '0 4px 20px rgba(139, 92, 246, 0.05)',
             animation: 'fadeIn 0.6s ease-out'
           }}>
-            <span style={{
-              width: '6px',
-              height: '6px',
-              backgroundColor: '#10b981',
-              borderRadius: 'var(--radius-full)',
-              display: 'inline-block'
-            }}></span>
-            Available for Freelance & Full-time Roles
+            <Sparkles size={14} color="var(--accent-color-hover)" />
+            <span>Hi, I'm Febin Ali 👋 UX/UI Designer & Front-End Developer</span>
           </div>
 
+          {/* Headline */}
           <h1 className="gradient-text" style={{
-            fontSize: 'clamp(2.5rem, 5vw, 4.5rem)',
+            fontSize: 'clamp(2.5rem, 6vw, 4.5rem)',
             fontWeight: 800,
             lineHeight: 1.1,
             letterSpacing: '-0.03em',
             marginBottom: '1.5rem',
             animation: 'fadeIn 0.8s ease-out'
           }}>
-            Crafting Premium Brands & Culinary Experiences
+            Crafting Premium Brands & Digital Experiences
           </h1>
 
+          {/* Description */}
           <p style={{
-            fontSize: 'clamp(1rem, 2vw, 1.25rem)',
+            fontSize: 'clamp(1rem, 2vw, 1.2rem)',
             color: 'var(--fg-secondary)',
-            lineHeight: 1.6,
-            marginBottom: '2.5rem',
+            lineHeight: 1.65,
+            maxWidth: '720px',
+            margin: '0 auto 2.5rem auto',
             animation: 'fadeIn 1s ease-out'
           }}>
-            A showcase of modern identity design, tap cards, marketing rollups, packaging layouts, and bespoke culinary menus. Elevating digital and print media with clean typography and trend-forward aesthetics.
+            Specializing in high-performance digital products, pixel-perfect user interfaces, vector branding identity materials, packaging design, and bespoke culinary layouts.
           </p>
 
+          {/* Call to Actions */}
           <div style={{
             display: 'flex',
             gap: '1rem',
             justifyContent: 'center',
             flexWrap: 'wrap',
-            marginBottom: '4rem',
+            marginBottom: '4.5rem',
             animation: 'fadeIn 1.2s ease-out'
           }}>
-            <button className="btn btn-primary" onClick={scrollToShowcase}>
+            <button 
+              className="btn btn-primary" 
+              onClick={() => scrollToSection('showcase')}
+              style={{ padding: '0.85rem 1.75rem' }}
+            >
               <LayoutGrid size={18} />
               Explore Portfolio
             </button>
-            <a 
+            <button 
               className="btn btn-secondary" 
-              href="/works/SURENDRAN.pdf" 
-              target="_blank" 
-              rel="noreferrer"
+              onClick={() => scrollToSection('contact')}
+              style={{ padding: '0.85rem 1.75rem' }}
             >
-              <FileText size={18} />
-              View Resume (PDF)
-            </a>
+              <MessageSquare size={18} />
+              Get In Touch
+            </button>
           </div>
 
           {/* Metric cards */}
           <div style={{
             display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))',
+            gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))',
             gap: '1.5rem',
             animation: 'fadeIn 1.4s ease-out'
           }}>
-            <div className="glass-card" style={{ padding: '1.5rem', textAlign: 'center' }}>
-              <div style={{ fontSize: '2.25rem', fontWeight: 800, color: 'var(--accent-color-hover)', marginBottom: '0.25rem' }}>45+</div>
-              <div style={{ fontSize: '0.85rem', color: 'var(--fg-secondary)', textTransform: 'uppercase', letterSpacing: '0.05em' }}>Portfolio Works</div>
-            </div>
-            
-            <div className="glass-card" style={{ padding: '1.5rem', textAlign: 'center' }}>
-              <div style={{ fontSize: '2.25rem', fontWeight: 800, color: 'var(--accent-color-hover)', marginBottom: '0.25rem' }}>4</div>
-              <div style={{ fontSize: '0.85rem', color: 'var(--fg-secondary)', textTransform: 'uppercase', letterSpacing: '0.05em' }}>Primary Categories</div>
+            <div className="glass-card" style={{ 
+              padding: '1.75rem', 
+              textAlign: 'center',
+              transition: 'transform var(--transition-normal), border-color var(--transition-normal)'
+            }}
+            onMouseEnter={(e) => {
+              e.currentTarget.style.transform = 'translateY(-4px)';
+              e.currentTarget.style.borderColor = 'rgba(139, 92, 246, 0.3)';
+            }}
+            onMouseLeave={(e) => {
+              e.currentTarget.style.transform = 'translateY(0)';
+              e.currentTarget.style.borderColor = 'var(--glass-border)';
+            }}>
+              <div style={{ fontSize: '2.5rem', fontWeight: 800, color: 'var(--accent-color-hover)', marginBottom: '0.25rem' }}>45+</div>
+              <div style={{ fontSize: '0.8rem', fontWeight: 700, color: 'var(--fg-tertiary)', textTransform: 'uppercase', letterSpacing: '0.05em' }}>Portfolio Works</div>
             </div>
 
-            <div className="glass-card" style={{ padding: '1.5rem', textAlign: 'center' }}>
-              <div style={{ fontSize: '2.25rem', fontWeight: 800, color: '#10b981', marginBottom: '0.25rem' }}>Print & Digital</div>
-              <div style={{ fontSize: '0.85rem', color: 'var(--fg-secondary)', textTransform: 'uppercase', letterSpacing: '0.05em' }}>Media Deliverables</div>
+            <div className="glass-card" style={{ 
+              padding: '1.75rem', 
+              textAlign: 'center',
+              transition: 'transform var(--transition-normal), border-color var(--transition-normal)'
+            }}
+            onMouseEnter={(e) => {
+              e.currentTarget.style.transform = 'translateY(-4px)';
+              e.currentTarget.style.borderColor = 'rgba(139, 92, 246, 0.3)';
+            }}
+            onMouseLeave={(e) => {
+              e.currentTarget.style.transform = 'translateY(0)';
+              e.currentTarget.style.borderColor = 'var(--glass-border)';
+            }}>
+              <div style={{ fontSize: '2.5rem', fontWeight: 800, color: 'var(--accent-color-hover)', marginBottom: '0.25rem' }}>2+ Years</div>
+              <div style={{ fontSize: '0.8rem', fontWeight: 700, color: 'var(--fg-tertiary)', textTransform: 'uppercase', letterSpacing: '0.05em' }}>Industry Experience</div>
+            </div>
+
+            <div className="glass-card" style={{ 
+              padding: '1.75rem', 
+              textAlign: 'center',
+              transition: 'transform var(--transition-normal), border-color var(--transition-normal)'
+            }}
+            onMouseEnter={(e) => {
+              e.currentTarget.style.transform = 'translateY(-4px)';
+              e.currentTarget.style.borderColor = 'rgba(16, 185, 129, 0.3)';
+            }}
+            onMouseLeave={(e) => {
+              e.currentTarget.style.transform = 'translateY(0)';
+              e.currentTarget.style.borderColor = 'var(--glass-border)';
+            }}>
+              <div style={{ fontSize: '2.5rem', fontWeight: 800, color: '#10b981', marginBottom: '0.25rem' }}>100%</div>
+              <div style={{ fontSize: '0.8rem', fontWeight: 700, color: 'var(--fg-tertiary)', textTransform: 'uppercase', letterSpacing: '0.05em' }}>Pixel-Perfect Quality</div>
             </div>
           </div>
 
@@ -131,12 +183,12 @@ export default function Hero() {
       </div>
 
       {/* Bounce scroll-down anchor */}
-      <div 
-        onClick={scrollToShowcase}
+      <div
+        onClick={() => scrollToSection('showcase')}
         style={{
           display: 'flex',
           justifyContent: 'center',
-          marginTop: '3rem',
+          marginTop: '3.5rem',
           cursor: 'pointer',
           color: 'var(--fg-tertiary)',
           transition: 'color var(--transition-fast)',

@@ -16,7 +16,7 @@ export default function Navbar() {
       <div className="container nav-container">
         <div className="logo cursor-pointer" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })} style={{ cursor: 'pointer' }}>
           <Sparkles className="text-violet-500" size={24} color="#8b5cf6" />
-          <span>PORTFOLIO</span>
+          <span>FEBIN ALI</span>
           <span className="logo-dot"></span>
         </div>
         
